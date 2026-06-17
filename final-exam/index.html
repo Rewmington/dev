@@ -1244,7 +1244,9 @@ function resetAllChapter() {
       count++;
     }
   }
-  if (count === 0) {
+  // For English listening fill-in chapter, always allow reset (blanks are not in answeredMap)
+  var isEngFillIn = currentSubject === 'eng' && currentChapter === 5;
+  if (count === 0 && !isEngFillIn) {
     alert('本章还没有作答记录哦！');
     return;
   }
