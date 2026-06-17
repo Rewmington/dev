@@ -209,9 +209,9 @@ pre code{font-family:inherit}
 .lp-unit-title{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--accent)}
 .lp-unit-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
 .lp-passage{font-size:14px;line-height:2.1;color:var(--text2);text-align:justify}
-.lp-passage .blank{display:inline-block;min-width:90px;padding:2px 10px;margin:0 3px;border-bottom:3px solid var(--accent);background:rgba(108,124,255,.08);border-radius:4px 4px 0 0;color:var(--accent);font-weight:700;text-align:center;cursor:pointer;transition:all .25s;font-size:13px;letter-spacing:.5px}
-.lp-passage .blank:hover{background:rgba(108,124,255,.18);border-color:var(--accent2)}
-.lp-passage .blank.revealed{border-color:var(--green);color:var(--green);background:rgba(78,205,196,.1)}
+.blank{display:inline-block;min-width:90px;padding:2px 10px;margin:0 3px;border-bottom:3px solid var(--accent);background:rgba(108,124,255,.08);border-radius:4px 4px 0 0;color:var(--accent);font-weight:700;text-align:center;cursor:pointer;transition:all .25s;font-size:13px;letter-spacing:.5px}
+.blank:hover{background:rgba(108,124,255,.18);border-color:var(--accent2)}
+.blank.revealed{border-color:var(--green);color:var(--green);background:rgba(78,205,196,.1)}
 .lp-toolbar{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--border);flex-shrink:0}
 .lp-toolbar .btn{flex:1;justify-content:center}
 .listening-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:199}
@@ -902,11 +902,19 @@ function renderContent() {
   // Special rendering for English resource chapters
   if (currentSubject === 'eng' && (currentChapter === 5 || currentChapter === 6)) {
     if (currentChapter === 5) {
-      html += '<div class="q-card" style="text-align:center;padding:32px;cursor:pointer" onclick="openListeningPanel()">';
-      html += '<div style="font-size:48px;margin-bottom:16px">🎧</div>';
-      html += '<div style="font-size:18px;font-weight:700;margin-bottom:8px">听力填空题 · Unit 1-5</div>';
-      html += '<div style="color:var(--text2);font-size:13px;margin-bottom:20px">点击此处打开侧面板，查看完整听力段落与填空答案</div>';
-      html += '<div style="display:inline-block;padding:12px 28px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600">👉 点击打开听力填空</div>';
+      // Render listening fill-in-the-blank directly in content area
+      for (var li = 0; li < LISTENING_DATA.length; li++) {
+        var lu = LISTENING_DATA[li];
+        var passage = lu.passage.replace(/\{([^}]+)\}/g, '<span class="blank" onclick="revealBlank(this)">$1</span>');
+        html += '<div class="q-card">';
+        html += '<div class="q-stem"><span class="q-num" style="color:var(--accent);font-weight:800">' + lu.title + '</span> ';
+        html += '<span style="color:var(--accent2);font-size:13px;font-weight:600">' + lu.subtitle + '</span></div>';
+        html += '<div style="font-size:14px;line-height:2.1;color:var(--text2);text-align:justify;margin-top:8px">' + passage + '</div>';
+        html += '</div>';
+      }
+      html += '<div style="text-align:center;padding:16px 0">';
+      html += '<button class="btn" onclick="revealAllContentBlanks()" style="margin:0 6px">👁 显示全部答案</button>';
+      html += '<button class="btn" onclick="hideAllContentBlanks()" style="margin:0 6px">🙈 隐藏全部答案</button>';
       html += '</div>';
     } else {
       html += '<div class="q-card" style="text-align:center;padding:32px">';
@@ -1289,6 +1297,18 @@ function revealAllBlanks() {
 
 function hideAllBlanks() {
   var els = document.querySelectorAll('#lpBody .blank');
+  for (var i = 0; i < els.length; i++) els[i].classList.remove('revealed');
+}
+
+function revealAllContentBlanks() {
+  var content = document.getElementById('content');
+  var els = content.querySelectorAll('.blank');
+  for (var i = 0; i < els.length; i++) els[i].classList.add('revealed');
+}
+
+function hideAllContentBlanks() {
+  var content = document.getElementById('content');
+  var els = content.querySelectorAll('.blank');
   for (var i = 0; i < els.length; i++) els[i].classList.remove('revealed');
 }
 
