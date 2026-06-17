@@ -29,20 +29,24 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:var(--bg);co
 .btn:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ===== Hero ===== */
-.hero{text-align:center;padding:64px 24px 40px;max-width:640px}
+.hero{text-align:center;padding:64px 24px 16px;max-width:640px}
 .hero h2{font-size:36px;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.3}
 .hero p{color:var(--text2);font-size:15px;line-height:1.7}
 
+/* ===== Section title ===== */
+.section-title{width:100%;max-width:920px;padding:24px 28px 12px;font-size:15px;font-weight:700;color:var(--text2);display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
 /* ===== Grid ===== */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;padding:0 28px 64px;width:100%;max-width:920px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:0 28px 40px;width:100%;max-width:920px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all .25s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px}
-.card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+.card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;opacity:0;transition:opacity .2s}
 .card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
 .card:hover::before{opacity:1}
-.card-icon{font-size:32px}
+.card-icon{font-size:36px}
 .card-title{font-size:17px;font-weight:700}
 .card-desc{font-size:13px;color:var(--text2);line-height:1.6}
-.card-tag{display:inline-block;font-size:11px;background:rgba(108,124,255,.12);color:var(--accent);padding:3px 10px;border-radius:10px;font-weight:600;align-self:flex-start}
+.card-tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600;align-self:flex-start}
 
 /* ===== Footer ===== */
 .footer{text-align:center;padding:20px 24px 32px;color:var(--text2);font-size:12px;border-top:1px solid var(--border);width:100%;max-width:920px}
@@ -59,25 +63,44 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:var(--bg);co
 
 <div class="hero">
   <h2>期末题库 & 学习资源</h2>
-  <p>在这里汇总所有在线资源，点击下方卡片即可跳转。</p>
+  <p>选择科目，进入对应题库练习。</p>
 </div>
 
+<div class="section-title">📝 期末题库</div>
 <div class="grid">
-  <a class="card" href="./final-exam/">
-    <div class="card-icon">📝</div>
-    <div class="card-title">期末题库</div>
-    <div class="card-desc">涵盖多门课程的期末复习题库，支持搜索、收藏、随机抽取等功能。</div>
-    <div class="card-tag">题库</div>
+  <a class="card" href="./final-exam/#java">
+    <div class="card-icon" style="color:#ff6b9d">☕</div>
+    <div class="card-title">Java 程序设计</div>
+    <div class="card-desc">选择题 + 编程题，含答案解析，覆盖反射、集合、IO 等核心考点。</div>
+    <div class="card-tag" style="background:rgba(255,107,157,.12);color:#ff6b9d">编程</div>
   </a>
 
-  <!-- 后续新增页面在这里加卡片即可，例如：
-  <a class="card" href="./notes/">
-    <div class="card-icon">📖</div>
-    <div class="card-title">课程笔记</div>
-    <div class="card-desc">课程笔记与知识点整理。</div>
-    <div class="card-tag">笔记</div>
+  <a class="card" href="./final-exam/#prob">
+    <div class="card-icon" style="color:#6c7cff">📊</div>
+    <div class="card-title">概率论与数理统计</div>
+    <div class="card-desc">单选 + 计算 + 证明，覆盖分布、期望、方差、协方差等知识点。</div>
+    <div class="card-tag" style="background:rgba(108,124,255,.12);color:#6c7cff">数学</div>
   </a>
-  -->
+
+  <a class="card" href="./final-exam/#mao">
+    <div class="card-icon" style="color:#f97316">📖</div>
+    <div class="card-title">毛泽东思想概论</div>
+    <div class="card-desc">导论 ~ 第八章，单选 + 多选 + 简答，覆盖新民主主义、社会主义改造等。</div>
+    <div class="card-tag" style="background:rgba(249,115,22,.12);color:#f97316">思政</div>
+  </a>
+
+  <a class="card" href="./final-exam/#marx">
+    <div class="card-icon" style="color:#ffd93d">📕</div>
+    <div class="card-title">习近平新时代中国特色社会主义思想</div>
+    <div class="card-desc">导论 ~ 第十七章，单选 + 多选 + 简答，全面覆盖新时代理论体系。</div>
+    <div class="card-tag" style="background:rgba(255,217,61,.12);color:#ffd93d">思政</div>
+  </a>
+</div>
+
+<div class="section-title">🔗 更多资源</div>
+<div class="grid" id="moreSection">
+  <!-- 后续新增页面在这里加卡片 -->
+  <div style="padding:24px;text-align:center;color:var(--text2);font-size:13px;border:1px dashed var(--border);border-radius:var(--radius);grid-column:1/-1">暂无更多资源，后续可在此添加笔记、工具等。</div>
 </div>
 
 <div class="footer">© 2026 Rewmington · GitHub Pages</div>
