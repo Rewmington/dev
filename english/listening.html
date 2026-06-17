@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>听力填空题 - 大学英语4</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f1117;--surface:#1a1d27;--card:#222536;--card-hover:#2a2e42;--border:#2e3348;--text:#e4e6f0;--text2:#9ca0b8;--accent:#6c7cff;--accent2:#4ecdc4;--green:#4ecdc4;--red:#ff6b9d;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.3)}
+[data-theme="light"]{--bg:#f0f2f5;--surface:#ffffff;--card:#ffffff;--card-hover:#f5f7fa;--border:#e0e4ea;--text:#1a1d27;--text2:#6b7280;--accent:#5b6bff;--accent2:#0d9488;--green:#0d9488;--red:#e11d48;--shadow:0 4px 24px rgba(0,0,0,.08)}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px}
+.topbar a{color:var(--accent);text-decoration:none;font-size:13px}
+.topbar a:hover{text-decoration:underline}
+.topbar h1{font-size:17px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar .spacer{flex:1}
+.btn{padding:7px 14px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);font-size:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.content{max-width:800px;margin:0 auto;padding:24px 20px 60px}
+.unit{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.unit-title{font-size:18px;font-weight:700;margin-bottom:14px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.unit-title .badge{font-size:11px;background:var(--accent);color:#fff;padding:2px 9px;border-radius:12px;font-weight:600}
+.passage{font-size:14px;line-height:2;color:var(--text2);text-align:justify}
+.passage .blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--accent);margin:0 2px;color:var(--accent);font-weight:600;text-align:center;cursor:pointer;transition:all .2s}
+.passage .blank.revealed{border-color:var(--green);color:var(--green)}
+.toolbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .35s ease}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="../index.html">← 返回导航</a>
+  <h1>🎧 听力填空题</h1>
+  <div class="spacer"></div>
+  <button class="btn" onclick="revealAll()">👁 显示全部</button>
+  <button class="btn" id="themeBtn" onclick="toggleTheme()">🌙 暗色</button>
+</div>
+<div class="content">
+  <div class="toolbar">
+    <span style="color:var(--text2);font-size:13px">点击下划线处显示答案，或点击「显示全部」</span>
+  </div>
+  <div id="units"></div>
+</div>
+<script>
+var UNITS = [
+  {title:'Unit 1',subtitle:'Moral Virtues in Confucianism',passage:'Moral virtues hold a central position in Confucianism, and are considered the basic principles of human behavior and the foundation for a just and harmonious society. The Five Constant Virtues, also known as the Five Constants or Wuchang, advocated by Confucianism, are <b>ren</b>, <b>yi</b>, <b>li</b>, <b>zhi</b>, and <b>xin</b>. Ren, or benevolence, is the most important virtue treasured by Confucianism. It means showing genuine concern and being kind and caring toward others. According to Confucius, if we all practice ren, we could have a peaceful and happy society. Yi, or righteousness, is also regarded as an important virtue in Confucian thought. It emphasizes the pursuit of justice and moral integrity. Li, or propriety, is the third important virtue encouraged by Confucianism. It is about proper conduct and behavior in different social settings. Zhi, or wisdom, is the fourth essential virtue of Confucianism. It highlights the importance of knowledge, learning, and critical thinking. Xin, or faithfulness, is also an essential virtue promoted by Confucianism. It involves being loyal, honest, and trustworthy in all aspects of life.'},
+  {title:'Unit 2',subtitle:'The Chongyang Festival',passage:'The Chongyang Festival, also referred to as the Double Ninth Festival, falls on the ninth day of the ninth month in the Chinese lunar calendar. The number nine is regarded as yang in Chinese culture, which represents positive forces, life, and brightness, hence the festival is given the name "Chongyang". In addition, the word "nine" shares the same pronunciation as the word for "long" or "forever" in Chinese, so "double ninth" implies good health and a long life. The festival has a long history of over 2,000 years. The most important tradition of the Chongyang Festival is <b>respecting the elderly</b>. Seniors are assets of families and society, representing valuable sources of wisdom, creation, and inheritance. Another custom is <b>ascending heights or climbing mountains</b>. Other traditions include eating Chongyang cake, appreciating chrysanthemum flowers, and drinking chrysanthemum wine. In modern times, in 1989, the Chinese government set it as <b>Senior\'s Day</b> to promote respect for the elderly. In 2006, it was listed as an item of China\'s national <b>intangible cultural heritage</b>.'},
+  {title:'Unit 3',subtitle:'Yangtze River Cruise',passage:'Taking a cruise on China\'s Yangtze River is a great way to spend a holiday. Among the classic routes available, one is the "Two Dams and One Gorge" tour, which offers a one-day Yangtze River cruise experience. Passengers get to explore three extraordinary sites: the <b>Gezhouba Dam</b>, the <b>Xiling Gorge</b>, and the <b>Three Gorges Dam</b>. The Gezhouba Dam is the first large-scale water control project on the Yangtze River, while the Three Gorges Dam stands as the world\'s largest hydropower project. The most amazing experience comes in the afternoon when tourists take a boat to pass through the Three Gorges Dam. To a remarkable vertical height of up to 113 meters, the boat is lifted gracefully by the world\'s largest and most advanced <b>vertical ship lift</b>. After crossing the dam, tourists can visit <b>Zigui County</b>, the hometown of <b>Qu Yuan</b>, a patriotic poet from the Warring States Period.'},
+  {title:'Unit 4',subtitle:'Digital Dunhuang',passage:'The northwestern Chinese city of Dunhuang is home to the <b>Mogao Caves</b>, a <b>UNESCO World Heritage Site</b>. The reproduced elements of the caves have been on display at the National Base for International Cultural Trade in Beijing since July 2022. While the painted sculptures, murals, and other splendid items of the Mogao Caves have been replicated using <b>3D printing</b>, the grottoes that are closed to the public have been reproduced in a digital format that brings them to life. A typical example is the <b>No. 3 Grotto</b>. The reconstruction and restoration were made possible thanks to <b>Digital Dunhuang</b>, an ongoing project at the cutting edge of digital technology. The project kicked off in the <b>1990s</b>, and by the end of 2021, the project team had completed the digital collection of <b>268 grottoes</b>, finished the image processing of 164 grottoes, and conducted 3D reconstruction of 45 painted sculptures, 146 grottoes, and seven large relic sites.'},
+  {title:'Unit 5',subtitle:'Environmental Protection in China',passage:'A clean and healthy environment is essential for people\'s well-being and happiness. The phrase "blue skies, green lands, and clear waters" has emerged as a guiding principle in China\'s pursuit of sustainable development. Since the 2010s, with strict government policies and advances in clean energy development, China has made remarkable progress in reducing its <b>PM2.5</b> density. China boasts the world\'s largest clean coal-burning power generation base, along with the highest volume of installed <b>wind and photovoltaic</b> power capacity. China has long stood out as the top producer of <b>new-energy vehicles</b> in the world. Following decades of afforestation, China has established the world\'s largest area of <b>planted forests</b>. Global data shows that nearly 25 percent of the world\'s increase in greenery since the early 2000s has occurred in China. The <b>Xixi Wetland</b> in Hangzhou is a good example. In 2003, the local government initiated a <b>wetland conservation program</b>, which marked a crucial turning point for the area.'}
+];
+
+function renderUnits(){
+  var html='';
+  for(var i=0;i<UNITS.length;i++){
+    var u=UNITS[i];
+    html+='<div class="unit fade-in" style="animation-delay:'+(i*0.08)+'s">';
+    html+='<div class="unit-title">'+u.title+'<span class="badge">'+u.subtitle+'</span></div>';
+    html+='<div class="passage">'+u.passage+'</div>';
+    html+='</div>';
+  }
+  document.getElementById('units').innerHTML=html;
+}
+renderUnits();
+
+function revealAll(){
+  var els=document.querySelectorAll('.passage b');
+  for(var i=0;i<els.length;i++){els[i].style.color='var(--green)';els[i].style.fontWeight='800'}
+}
+
+function toggleTheme(){
+  var isLight=document.body.getAttribute('data-theme')==='light';
+  if(isLight){document.body.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙 暗色'}
+  else{document.body.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️ 亮色'}
+}
+if(localStorage.getItem('theme')==='light'){document.body.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️ 亮色'}
+</script>
+</body>
+</html>
