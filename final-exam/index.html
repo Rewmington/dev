@@ -192,6 +192,32 @@ pre code{font-family:inherit}
   .btn{padding:6px 8px;font-size:11px}
 }
 
+/* ===== Listening Panel ===== */
+.listening-panel{position:fixed;top:0;right:-480px;width:480px;max-width:90vw;height:100vh;background:var(--surface);border-left:1px solid var(--border);z-index:200;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,.3)}
+.listening-panel.open{right:0}
+.lp-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-shrink:0}
+.lp-header h3{font-size:16px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex:1}
+.lp-close{width:32px;height:32px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.lp-close:hover{border-color:var(--red);color:var(--red)}
+.lp-body{flex:1;overflow-y:auto;padding:20px}
+.lp-tabs{display:flex;gap:4px;padding:0 20px 12px;flex-wrap:wrap;flex-shrink:0;border-bottom:1px solid var(--border)}
+.lp-tab{padding:6px 14px;font-size:12px;color:var(--text2);cursor:pointer;border-radius:8px;border:1px solid transparent;transition:all .2s;white-space:nowrap;font-weight:600}
+.lp-tab:hover{background:var(--card);color:var(--text)}
+.lp-tab.active{color:var(--accent);background:rgba(108,124,255,.1);border-color:rgba(108,124,255,.3)}
+.lp-unit{display:none}
+.lp-unit.active{display:block}
+.lp-unit-title{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--accent)}
+.lp-unit-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
+.lp-passage{font-size:14px;line-height:2.1;color:var(--text2);text-align:justify}
+.lp-passage .blank{display:inline-block;min-width:90px;padding:2px 10px;margin:0 3px;border-bottom:3px solid var(--accent);background:rgba(108,124,255,.08);border-radius:4px 4px 0 0;color:var(--accent);font-weight:700;text-align:center;cursor:pointer;transition:all .25s;font-size:13px;letter-spacing:.5px}
+.lp-passage .blank:hover{background:rgba(108,124,255,.18);border-color:var(--accent2)}
+.lp-passage .blank.revealed{border-color:var(--green);color:var(--green);background:rgba(78,205,196,.1)}
+.lp-toolbar{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--border);flex-shrink:0}
+.lp-toolbar .btn{flex:1;justify-content:center}
+.listening-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:199}
+.listening-overlay.show{display:block}
+@media(max-width:768px){.listening-panel{width:100%;max-width:100%}}
+
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
@@ -246,6 +272,21 @@ pre code{font-family:inherit}
     </div>
   </div>
   <div class="content" id="content"></div>
+</div>
+
+<!-- Listening Panel -->
+<div class="listening-overlay" id="listeningOverlay" onclick="closeListeningPanel()"></div>
+<div class="listening-panel" id="listeningPanel">
+  <div class="lp-header">
+    <h3>🎧 听力填空题</h3>
+    <button class="lp-close" onclick="closeListeningPanel()">✕</button>
+  </div>
+  <div class="lp-tabs" id="lpTabs"></div>
+  <div class="lp-body" id="lpBody"></div>
+  <div class="lp-toolbar">
+    <button class="btn" onclick="revealAllBlanks()">👁 显示全部答案</button>
+    <button class="btn" onclick="hideAllBlanks()">🙈 隐藏全部答案</button>
+  </div>
 </div>
 
 <script>
@@ -861,11 +902,11 @@ function renderContent() {
   // Special rendering for English resource chapters
   if (currentSubject === 'eng' && (currentChapter === 5 || currentChapter === 6)) {
     if (currentChapter === 5) {
-      html += '<div class="q-card" style="text-align:center;padding:32px">';
+      html += '<div class="q-card" style="text-align:center;padding:32px;cursor:pointer" onclick="openListeningPanel()">';
       html += '<div style="font-size:48px;margin-bottom:16px">🎧</div>';
       html += '<div style="font-size:18px;font-weight:700;margin-bottom:8px">听力填空题 · Unit 1-5</div>';
-      html += '<div style="color:var(--text2);font-size:13px;margin-bottom:20px">完整听力段落填空，在线阅读版</div>';
-      html += '<a href="../english/listening.html" target="_blank" style="display:inline-block;padding:12px 28px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;transition:all .2s" onmouseover="this.style.opacity=\'0.85\'" onmouseout="this.style.opacity=\'1\'">👉 打开听力填空题</a>';
+      html += '<div style="color:var(--text2);font-size:13px;margin-bottom:20px">点击此处打开侧面板，查看完整听力段落与填空答案</div>';
+      html += '<div style="display:inline-block;padding:12px 28px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600">👉 点击打开听力填空</div>';
       html += '</div>';
     } else {
       html += '<div class="q-card" style="text-align:center;padding:32px">';
@@ -1186,6 +1227,69 @@ function resetAllChapter() {
   btn.innerHTML = '<span>👁</span> 显示全部答案';
   renderContent();
   updateStats();
+}
+
+// ==================== LISTENING PANEL ====================
+var LISTENING_DATA = [
+  {id:'u1',title:'Unit 1',subtitle:'Moral Virtues in Confucianism',passage:'Moral virtues hold a central position in Confucianism, and are considered the basic principles of human behavior and the foundation for a just and harmonious society. The Five Constant Virtues, also known as the Five Constants or Wuchang, advocated by Confucianism, are {ren}, {yi}, {li}, {zhi}, and {xin}. Ren, or benevolence, is the most important virtue treasured by Confucianism. It means showing genuine concern and being kind and caring toward others. According to Confucius, if we all practice ren, we could have a peaceful and happy society. Yi, or righteousness, is also regarded as an important virtue in Confucian thought. It emphasizes the pursuit of justice and moral integrity. Li, or propriety, is the third important virtue encouraged by Confucianism. It is about proper conduct and behavior in different social settings. Zhi, or wisdom, is the fourth essential virtue of Confucianism. It highlights the importance of knowledge, learning, and critical thinking. Xin, or faithfulness, is also an essential virtue promoted by Confucianism. It involves being loyal, honest, and trustworthy in all aspects of life.'},
+  {id:'u2',title:'Unit 2',subtitle:'The Chongyang Festival',passage:'The Chongyang Festival, also referred to as the Double Ninth Festival, falls on the ninth day of the ninth month in the Chinese lunar calendar. The number nine is regarded as yang in Chinese culture, which represents positive forces, life, and brightness, hence the festival is given the name "Chongyang". In addition, the word "nine" shares the same pronunciation as the word for "long" or "forever" in Chinese, so "double ninth" implies good health and a long life. The festival has a long history of over 2,000 years. The most important tradition of the Chongyang Festival is {respecting the elderly}. Seniors are assets of families and society, representing valuable sources of wisdom, creation, and inheritance. Another custom is {ascending heights or climbing mountains}. Other traditions include eating Chongyang cake, appreciating chrysanthemum flowers, and drinking chrysanthemum wine. In modern times, in 1989, the Chinese government set it as {Senior\'s Day} to promote respect for the elderly. In 2006, it was listed as an item of China\'s national {intangible cultural heritage}.'},
+  {id:'u3',title:'Unit 3',subtitle:'Yangtze River Cruise',passage:'Taking a cruise on China\'s Yangtze River is a great way to spend a holiday. Among the classic routes available, one is the "Two Dams and One Gorge" tour, which offers a one-day Yangtze River cruise experience. Passengers get to explore three extraordinary sites: the {Gezhouba Dam}, the {Xiling Gorge}, and the {Three Gorges Dam}. The Gezhouba Dam is the first large-scale water control project on the Yangtze River, while the Three Gorges Dam stands as the world\'s largest hydropower project. The most amazing experience comes in the afternoon when tourists take a boat to pass through the Three Gorges Dam. To a remarkable vertical height of up to 113 meters, the boat is lifted gracefully by the world\'s largest and most advanced {vertical ship lift}. After crossing the dam, tourists can visit {Zigui County}, the hometown of {Qu Yuan}, a patriotic poet from the Warring States Period.'},
+  {id:'u4',title:'Unit 4',subtitle:'Digital Dunhuang',passage:'The northwestern Chinese city of Dunhuang is home to the {Mogao Caves}, a {UNESCO World Heritage Site}. The reproduced elements of the caves have been on display at the National Base for International Cultural Trade in Beijing since July 2022. While the painted sculptures, murals, and other splendid items of the Mogao Caves have been replicated using {3D printing}, the grottoes that are closed to the public have been reproduced in a digital format that brings them to life. A typical example is the {No. 3 Grotto}. The reconstruction and restoration were made possible thanks to {Digital Dunhuang}, an ongoing project at the cutting edge of digital technology. The project kicked off in the {1990s}, and by the end of 2021, the project team had completed the digital collection of {268 grottoes}, finished the image processing of 164 grottoes, and conducted 3D reconstruction of 45 painted sculptures, 146 grottoes, and seven large relic sites.'},
+  {id:'u5',title:'Unit 5',subtitle:'Environmental Protection in China',passage:'A clean and healthy environment is essential for people\'s well-being and happiness. The phrase "blue skies, green lands, and clear waters" has emerged as a guiding principle in China\'s pursuit of sustainable development. Since the 2010s, with strict government policies and advances in clean energy development, China has made remarkable progress in reducing its {PM2.5} density. China boasts the world\'s largest clean coal-burning power generation base, along with the highest volume of installed {wind and photovoltaic} power capacity. China has long stood out as the top producer of {new-energy vehicles} in the world. Following decades of afforestation, China has established the world\'s largest area of {planted forests}. Global data shows that nearly 25 percent of the world\'s increase in greenery since the early 2000s has occurred in China. The {Xixi Wetland} in Hangzhou is a good example. In 2003, the local government initiated a {wetland conservation program}, which marked a crucial turning point for the area.'}
+];
+
+var currentLPUnit = 0;
+
+function openListeningPanel() {
+  document.getElementById('listeningPanel').classList.add('open');
+  document.getElementById('listeningOverlay').classList.add('show');
+  renderLPTabs();
+  renderLPContent();
+}
+
+function closeListeningPanel() {
+  document.getElementById('listeningPanel').classList.remove('open');
+  document.getElementById('listeningOverlay').classList.remove('show');
+}
+
+function renderLPTabs() {
+  var html = '';
+  for (var i = 0; i < LISTENING_DATA.length; i++) {
+    var u = LISTENING_DATA[i];
+    html += '<div class="lp-tab ' + (i === currentLPUnit ? 'active' : '') + '" onclick="switchLPUnit(' + i + ')">' + u.title + '</div>';
+  }
+  document.getElementById('lpTabs').innerHTML = html;
+}
+
+function switchLPUnit(idx) {
+  currentLPUnit = idx;
+  renderLPTabs();
+  renderLPContent();
+}
+
+function renderLPContent() {
+  var u = LISTENING_DATA[currentLPUnit];
+  var passage = u.passage.replace(/\{([^}]+)\}/g, '<span class="blank" onclick="revealBlank(this)">$1</span>');
+  var html = '<div class="lp-unit active">';
+  html += '<div class="lp-unit-title">' + u.title + '</div>';
+  html += '<div class="lp-unit-sub">' + u.subtitle + '</div>';
+  html += '<div class="lp-passage">' + passage + '</div>';
+  html += '</div>';
+  document.getElementById('lpBody').innerHTML = html;
+}
+
+function revealBlank(el) {
+  el.classList.add('revealed');
+}
+
+function revealAllBlanks() {
+  var els = document.querySelectorAll('#lpBody .blank');
+  for (var i = 0; i < els.length; i++) els[i].classList.add('revealed');
+}
+
+function hideAllBlanks() {
+  var els = document.querySelectorAll('#lpBody .blank');
+  for (var i = 0; i < els.length; i++) els[i].classList.remove('revealed');
 }
 
 // ==================== RENDER EXAM POINTS ====================
