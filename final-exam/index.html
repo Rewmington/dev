@@ -235,6 +235,7 @@ pre code{font-family:inherit}
 .listening-overlay.show{display:block}
 @media(max-width:768px){.listening-panel{width:100%;max-width:100%}}
 
+.q-key-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:rgba(255,217,61,.15);color:#ffd93d;border:1px solid rgba(255,217,61,.3);margin-left:6px;white-space:nowrap;flex-shrink:0}
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
@@ -357,35 +358,35 @@ DATA.prob = {
     {
       name: "单项选择题（1-18）",
       questions: [
-        {"stem": "对于任意两事件 A 和 B，与 A∪B = B 不等价的是（ ）。", "options": ["A. A⊂B", "B. B⊂A", "C. AB = ∅", "D. AB̄ = ∅"], "answer": "D"},
-        {"stem": "设 A 与 B 是任意两个互不相容事件，则下列结论中正确的是（ ）。", "options": ["A. P(Ā)=1-P(B)", "B. Ā 与 B̄ 互不相容", "C. P(AB)=P(A)P(B)", "D. P(A-B)=P(A)"], "answer": "D"},
-        {"stem": "在区间 (0,1) 中随机取两数，则事件「两数之和大于 2/3」的概率是（ ）。", "options": ["A. 1/3", "B. 7/9", "C. 2/3", "D. 2/9"], "answer": "B"},
-        {"stem": "设 A、B、C 为 3 个随机事件，且 A 与 C 相互独立，B 与 C 相互独立，则 A∪B 与 C 相互独立的充要条件是（ ）。", "options": ["A. A 与 B 相互独立", "B. A 与 B 互不相容", "C. AB 与 C 相互独立", "D. AB 与 C 互不相容"], "answer": "C"},
-        {"stem": "设随机事件 A, B 满足 P(A)=0.6, P(B)=0.7, P(B|Ā)=0.5，则 P(A∪B)=（ ）。", "options": ["A. 0.88", "B. 0.90", "C. 0.80", "D. 0.92"], "answer": "C"},
-        {"stem": "已知 P(A)=0.4, P(A∪B)=0.7，且事件 A, B 互不相容，则 P(B|Ā)=（ ）。", "options": ["A. 0.3", "B. 0.5", "C. 0.75", "D. 1"], "answer": "B"},
-        {"stem": "设事件 A, B 相互独立，且 P(A)=0.5, P(A-B)=0.2，则 P(B)=（ ）。", "options": ["A. 0.4", "B. 0.6", "C. 0.5", "D. 0.8"], "answer": "B"},
-        {"stem": "某工厂有甲、乙、丙三条生产线，产量占比分别为 20%、30%、50%，次品率分别为 0.02、0.01、0.03。现随机抽取一件产品为次品，则该次品来自丙生产线的概率为（ ）。", "options": ["A. 15/22", "B. 3/10", "C. 1/2", "D. 8/23"], "answer": "A"},
-        {"stem": "设随机变量 X 的概率密度 f(x) 满足 f(-x)=f(x)，F(x) 是 X 的分布函数，则对任意实数 a，下列式子中成立的是（ ）。", "options": ["A. F(-a)=1-∫₀ᵃ f(x)dx", "B. F(-a)=1/2-∫₀ᵃ f(x)dx", "C. F(-a)=F(a)", "D. F(-a)=2F(a)-1"], "answer": "B"},
-        {"stem": "已知随机变量 X 的概率密度为 fₓ(x)，则 Y=3X-2 的概率密度 fₛ(y) 为（ ）。", "options": ["A. (1/3)fₓ((y+2)/3)，前面带负号", "B. (1/3)fₓ((y+2)/3)", "C. (1/3)fₓ((y-2)/3)，前面带负号", "D. (1/3)fₓ((y-2)/3)"], "answer": "B"},
-        {"stem": "设随机变量 X 的分布函数为 F(x)，且 F(1)=0.3, F(2)=0.7, F(3)=0.9，则 P(1<X≤3)=（ ）。", "options": ["A. 0.4", "B. 0.6", "C. 0.9", "D. 1.2"], "answer": "B"},
-        {"stem": "设 X 服从区间 (2,6) 上的均匀分布，则 P(3<X<5)=（ ）。", "options": ["A. 1/2", "B. 1/3", "C. 1/4", "D. 3/4"], "answer": "A"},
+        {"stem": "对于任意两事件 A 和 B，与 A∪B = B 不等价的是（ ）。", "options": ["A. A⊂B", "B. B⊂A", "C. AB = ∅", "D. AB̄ = ∅"], "answer": "D","key":true},
+        {"stem": "设 A 与 B 是任意两个互不相容事件，则下列结论中正确的是（ ）。", "options": ["A. P(Ā)=1-P(B)", "B. Ā 与 B̄ 互不相容", "C. P(AB)=P(A)P(B)", "D. P(A-B)=P(A)"], "answer": "D","key":true},
+        {"stem": "在区间 (0,1) 中随机取两数，则事件「两数之和大于 2/3」的概率是（ ）。", "options": ["A. 1/3", "B. 7/9", "C. 2/3", "D. 2/9"], "answer": "B","key":true},
+        {"stem": "设 A、B、C 为 3 个随机事件，且 A 与 C 相互独立，B 与 C 相互独立，则 A∪B 与 C 相互独立的充要条件是（ ）。", "options": ["A. A 与 B 相互独立", "B. A 与 B 互不相容", "C. AB 与 C 相互独立", "D. AB 与 C 互不相容"], "answer": "C","key":true},
+        {"stem": "设随机事件 A, B 满足 P(A)=0.6, P(B)=0.7, P(B|Ā)=0.5，则 P(A∪B)=（ ）。", "options": ["A. 0.88", "B. 0.90", "C. 0.80", "D. 0.92"], "answer": "C","key":true},
+        {"stem": "已知 P(A)=0.4, P(A∪B)=0.7，且事件 A, B 互不相容，则 P(B|Ā)=（ ）。", "options": ["A. 0.3", "B. 0.5", "C. 0.75", "D. 1"], "answer": "B","key":true},
+        {"stem": "设事件 A, B 相互独立，且 P(A)=0.5, P(A-B)=0.2，则 P(B)=（ ）。", "options": ["A. 0.4", "B. 0.6", "C. 0.5", "D. 0.8"], "answer": "B","key":true},
+        {"stem": "某工厂有甲、乙、丙三条生产线，产量占比分别为 20%、30%、50%，次品率分别为 0.02、0.01、0.03。现随机抽取一件产品为次品，则该次品来自丙生产线的概率为（ ）。", "options": ["A. 15/22", "B. 3/10", "C. 1/2", "D. 8/23"], "answer": "A","key":true},
+        {"stem": "设随机变量 X 的概率密度 f(x) 满足 f(-x)=f(x)，F(x) 是 X 的分布函数，则对任意实数 a，下列式子中成立的是（ ）。", "options": ["A. F(-a)=1-∫₀ᵃ f(x)dx", "B. F(-a)=1/2-∫₀ᵃ f(x)dx", "C. F(-a)=F(a)", "D. F(-a)=2F(a)-1"], "answer": "B","key":true},
+        {"stem": "已知随机变量 X 的概率密度为 fₓ(x)，则 Y=3X-2 的概率密度 fₛ(y) 为（ ）。", "options": ["A. (1/3)fₓ((y+2)/3)，前面带负号", "B. (1/3)fₓ((y+2)/3)", "C. (1/3)fₓ((y-2)/3)，前面带负号", "D. (1/3)fₓ((y-2)/3)"], "answer": "B","key":true},
+        {"stem": "设随机变量 X 的分布函数为 F(x)，且 F(1)=0.3, F(2)=0.7, F(3)=0.9，则 P(1<X≤3)=（ ）。", "options": ["A. 0.4", "B. 0.6", "C. 0.9", "D. 1.2"], "answer": "B","key":true},
+        {"stem": "设 X 服从区间 (2,6) 上的均匀分布，则 P(3<X<5)=（ ）。", "options": ["A. 1/2", "B. 1/3", "C. 1/4", "D. 3/4"], "answer": "A","key":true},
         {"stem": "设随机变量 X 服从指数分布 E(λ)，则下列性质正确的是（ ）。", "options": ["A. E(X)=λ", "B. D(X)=λ²", "C. 无记忆性", "D. 离散型分布"], "answer": "C"},
         {"stem": "设随机变量 X~N(μ,σ²)，且 P(X≤μ+a)=0.8，则 P(X≤μ-a)=（ ）。", "options": ["A. 0.8", "B. 0.2", "C. 0.4", "D. 0.6"], "answer": "B"},
         {"stem": "已知随机变量 X 的分布律为：P(X=-2)=0.1, P(X=0)=0.3, P(X=1)=0.4, P(X=2)=0.2，且 Y=X²-1，记 Y 的分布函数为 Fₛ(y)，则 Fₛ(2)=（ ）。", "options": ["A. 0.3", "B. 0.4", "C. 0.7", "D. 0.8"], "answer": "C"},
         {"stem": "设连续型随机变量 X 的概率密度为 f(x)=2x (0≤x≤1)，其他为 0，则 P(X≥1/2)=（ ）。", "options": ["A. 1/4", "B. 1/2", "C. 3/4", "D. 1"], "answer": "C"},
         {"stem": "设随机变量 (X,Y) 的联合分布函数为 F(x,y)，边缘分布函数为 Fₓ(x) 和 Fₛ(y)，则 P(X>1, Y>1)=（ ）。", "options": ["A. 1-F(1,1)", "B. 1-Fₓ(1)-Fₛ(1)", "C. 1-Fₓ(1)-Fₛ(1)+F(1,1)", "D. F(1,1)+Fₓ(1)+Fₛ(1)-1"], "answer": "C"},
-        {"stem": "设二维随机变量 (X,Y) 的联合分布函数为 F(x,y)，则 P(X≤a, Y≤b)=（ ）。", "options": ["A. F(a,b)", "B. F(a,b)-F(a,0)", "C. F(a,b)-F(0,b)", "D. F(a,b)-F(a,+∞)"], "answer": "A"}
+        {"stem": "设二维随机变量 (X,Y) 的联合分布函数为 F(x,y)，则 P(X≤a, Y≤b)=（ ）。", "options": ["A. F(a,b)", "B. F(a,b)-F(a,0)", "C. F(a,b)-F(0,b)", "D. F(a,b)-F(a,+∞)"], "answer": "A","key":true}
       ]
     },
     {
       name: "单项选择题（19-35）",
       questions: [
-        {"stem": "设二维随机变量 (X,Y) 在区域 D: 0≤x≤1, 0≤y≤1 上服从均匀分布，则 P(X+Y≤1)=（ ）。", "options": ["A. 1/2", "B. 1/4", "C. 1/3", "D. 1"], "answer": "A"},
-        {"stem": "已知 X,Y 独立，D(X)=2, D(Y)=3，则 D(2X-Y)=（ ）。", "options": ["A. 1", "B. 7", "C. 11", "D. 13"], "answer": "C"},
-        {"stem": "设二维随机变量 (X,Y) 满足 Cov(X,Y)=0，则（ ）。", "options": ["A. X,Y 独立", "B. X,Y 不相关", "C. D(XY)=0", "D. X,Y 线性相关"], "answer": "B"},
-        {"stem": "设 X,Y 相互独立且都服从正态分布，则 X+Y 服从（ ）。", "options": ["A. 均匀分布", "B. 正态分布", "C. 指数分布", "D. 二项分布"], "answer": "B"},
-        {"stem": "设 P(X≤x, Y>y)=（ ）。", "options": ["A. F(x,+∞)-F(x,y)", "B. 1-F(x,y)", "C. F(x,y)-F(y,x)", "D. F(x,+∞)+F(x,y)"], "answer": "A"},
-        {"stem": "设随机变量 X 和 Y 相互独立，且都服从区间 (0,1) 上的均匀分布，则 P(X²+Y²≤1)=（ ）。", "options": ["A. 1/4", "B. 1/2", "C. π/8", "D. π/4"], "answer": "D"},
+        {"stem": "设二维随机变量 (X,Y) 在区域 D: 0≤x≤1, 0≤y≤1 上服从均匀分布，则 P(X+Y≤1)=（ ）。", "options": ["A. 1/2", "B. 1/4", "C. 1/3", "D. 1"], "answer": "A","key":true},
+        {"stem": "已知 X,Y 独立，D(X)=2, D(Y)=3，则 D(2X-Y)=（ ）。", "options": ["A. 1", "B. 7", "C. 11", "D. 13"], "answer": "C","key":true},
+        {"stem": "设二维随机变量 (X,Y) 满足 Cov(X,Y)=0，则（ ）。", "options": ["A. X,Y 独立", "B. X,Y 不相关", "C. D(XY)=0", "D. X,Y 线性相关"], "answer": "B","key":true},
+        {"stem": "设 X,Y 相互独立且都服从正态分布，则 X+Y 服从（ ）。", "options": ["A. 均匀分布", "B. 正态分布", "C. 指数分布", "D. 二项分布"], "answer": "B","key":true},
+        {"stem": "设 P(X≤x, Y>y)=（ ）。", "options": ["A. F(x,+∞)-F(x,y)", "B. 1-F(x,y)", "C. F(x,y)-F(y,x)", "D. F(x,+∞)+F(x,y)"], "answer": "A","key":true},
+        {"stem": "设随机变量 X 和 Y 相互独立，且都服从区间 (0,1) 上的均匀分布，则 P(X²+Y²≤1)=（ ）。", "options": ["A. 1/4", "B. 1/2", "C. π/8", "D. π/4"], "answer": "D","key":true},
         {"stem": "设二维随机变量 (X,Y) 的分布律为：P(0,0)=0.4, P(0,1)=a, P(1,0)=b, P(1,1)=0.1。已知 X+Y 与 X 相互独立，则（ ）。", "options": ["A. a=0.2, b=0.3", "B. a=0.4, b=0.1", "C. a=0.3, b=0.2", "D. a=0.1, b=0.4"], "answer": "B"},
         {"stem": "设二维离散型随机变量 (X,Y) 的联合分布律满足 P(X=i,Y=j)=P(X=i)P(Y=j)，且 P(X=1,Y=1)=0.2, P(X=1,Y=2)=0.3，则 P(Y=2)=（ ）。", "options": ["A. 0.4", "B. 0.5", "C. 0.6", "D. 0.7"], "answer": "C"},
         {"stem": "设随机变量 X,Y 不相关，E(X)=2, E(Y)=1, D(X)=3，则 E[X(X+Y-2)] 的值为（ ）。", "options": ["A. 3", "B. 4", "C. 5", "D. 2"], "answer": "C"},
@@ -402,26 +403,26 @@ DATA.prob = {
     {
       name: "计算题",
       questions: [
-        {"stem": "【计算】设 A,B,C 是 3 个随机事件，且 P(A)=P(B)=1/4, P(C)=1/7, P(AB)=P(BC)=0, P(AC)=0。求 A,B,C 至少有一个发生的概率。", "options": [], "answer": "P(A∪B∪C) = P(A)+P(B)+P(C)-P(AB)-P(BC)-P(AC)+P(ABC) = 1/4+1/4+1/7-0-0-0+0 = 17/28"},
-        {"stem": "【计算】设 A,B,C 为 3 个随机事件，A 与 B 互不相容，A 与 C 互不相容，B 与 C 相互独立，且 P(A)=P(B)=P(C)=1/3。求 P(B∪C|A∪B∪C)。", "options": [], "answer": "P(B∪C|A∪B∪C) = P(B∪C)/P(A∪B∪C) = 5/8"},
-        {"stem": "【计算】设事件 A,B 相互独立，若 A,B 都不发生的概率为 1/9，且 A 发生 B 不发生的概率与 B 发生 A 不发生的概率相等，求 P(A)。", "options": [], "answer": "P(A) = 2/3"},
-        {"stem": "【计算】设 A,B 是两个事件，已知 P(B)=0.3, P(A∪B)=0.6，求 P(AB)。", "options": [], "answer": "P(AB) = P(A) - P(A∪B) + P(B) = 0.3"},
+        {"stem": "【计算】设 A,B,C 是 3 个随机事件，且 P(A)=P(B)=1/4, P(C)=1/7, P(AB)=P(BC)=0, P(AC)=0。求 A,B,C 至少有一个发生的概率。", "options": [], "answer": "P(A∪B∪C) = P(A)+P(B)+P(C)-P(AB)-P(BC)-P(AC)+P(ABC) = 1/4+1/4+1/7-0-0-0+0 = 17/28","key":true},
+        {"stem": "【计算】设 A,B,C 为 3 个随机事件，A 与 B 互不相容，A 与 C 互不相容，B 与 C 相互独立，且 P(A)=P(B)=P(C)=1/3。求 P(B∪C|A∪B∪C)。", "options": [], "answer": "P(B∪C|A∪B∪C) = P(B∪C)/P(A∪B∪C) = 5/8","key":true},
+        {"stem": "【计算】设事件 A,B 相互独立，若 A,B 都不发生的概率为 1/9，且 A 发生 B 不发生的概率与 B 发生 A 不发生的概率相等，求 P(A)。", "options": [], "answer": "P(A) = 2/3","key":true},
+        {"stem": "【计算】设 A,B 是两个事件，已知 P(B)=0.3, P(A∪B)=0.6，求 P(AB)。", "options": [], "answer": "P(AB) = P(A) - P(A∪B) + P(B) = 0.3","key":true},
         {"stem": "【计算】设 A,B,C 为随机事件，且 A,C 互不相容，已知 P(AB)=1/2, P(C)=1/3，求 P(AB|C̄)。", "options": [], "answer": "P(AB|C̄) = P(ABC̄)/P(C̄) = P(AB)/P(C̄) = (1/2)/(2/3) = 3/4"},
         {"stem": "【计算】设 A,B 是两个随机事件，已知 P(A)=1/3, P(A|B)=2/3, P(B|Ā)=1/10，求 P(B)。", "options": [], "answer": "P(B) = 1/5"},
         {"stem": "【计算】设随机变量 X 的概率密度函数为 f(x)=2x (0<x<2)，其他为 0。求 X 的分布函数 F(x)。", "options": [], "answer": "F(x) = 0 (x≤0); x²/4 (0<x<2); 1 (x≥2)"},
         {"stem": "【计算】已知随机变量 X 的概率密度函数为 f(x)=x (0≤x≤1), =2-x (1<x≤2), 其他为 0。(1)求分布函数 F(x)。(2)求 P(X<0.5), P(X≥1.5), P(0.3<X≤1.5)。", "options": [], "answer": "(1) F(x)=x²/2 (0≤x≤1); 2x-x²/2-1 (1<x≤2)\n(2) P(X<0.5)=0.125; P(X≥1.5)=0.125; P(0.3<X≤1.5)=0.855"},
         {"stem": "【计算】已知连续型随机变量 X 的分布函数为 F(x)=x²/4 (0≤x≤2)。求概率密度 f(x) 和 P(0.4≤X≤0.7)。", "options": [], "answer": "f(x)=x/2 (0≤x≤2), 其他为 0\nP(0.4≤X≤0.7) = F(0.7)-F(0.4) = 0.49/4-0.16/4 = 0.0825"},
-        {"stem": "【计算】已知随机变量 X 的概率密度函数为 f(x)=(2/3)x (1≤x≤2)。求 Y=3X-2 的概率密度函数。", "options": [], "answer": "fₛ(y) = 2(y+2)/27, -1≤y≤4; 其他为 0"},
-        {"stem": "【计算】已知随机变量 X 的分布律为：X=-2,P=3a; X=-1,P=1/6; X=0,P=3a; X=1,P=a; X=3,P=11/30。(1)求 a。(2)求 Y=X²+1 的分布律。", "options": [], "answer": "(1) a=1/15\n(2) Y: 1→1/5, 2→7/30, 5→1/5, 10→11/30"},
-        {"stem": "【计算】已知随机变量 X 的分布函数为 F(x)=0 (x≤0), =ln x (0<x≤e), =1 (x>e)。求 P(0<X<3) 和 P(X≤2)。", "options": [], "answer": "P(0<X<3) = F(3)-F(0) = 1-0 = 1\nP(X≤2) = F(2) = ln2"},
-        {"stem": "【计算】已知二维连续型随机变量 (X,Y) 的分布函数为 F(x,y)=(1-e⁻³ᵃ)(1-e⁻⁵ᵏ) (x≥0,y≥0)。求联合概率密度 f(x,y)。", "options": [], "answer": "f(x,y) = 15e⁻³ᵃ⁻⁵ᵏ (x≥0,y≥0), 其他为 0"},
-        {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=4xy (0<x<1,0<y<1)。(1)求边缘概率密度。(2)求 P(X≤1/2, Y≤1/2)。", "options": [], "answer": "fₓ(x)=2x (0<x<1); fₛ(y)=2y (0<y<1)\nP(X≤1/2,Y≤1/2) = 1/16"},
+        {"stem": "【计算】已知随机变量 X 的概率密度函数为 f(x)=(2/3)x (1≤x≤2)。求 Y=3X-2 的概率密度函数。", "options": [], "answer": "fₛ(y) = 2(y+2)/27, -1≤y≤4; 其他为 0","key":true},
+        {"stem": "【计算】已知随机变量 X 的分布律为：X=-2,P=3a; X=-1,P=1/6; X=0,P=3a; X=1,P=a; X=3,P=11/30。(1)求 a。(2)求 Y=X²+1 的分布律。", "options": [], "answer": "(1) a=1/15\n(2) Y: 1→1/5, 2→7/30, 5→1/5, 10→11/30","key":true},
+        {"stem": "【计算】已知随机变量 X 的分布函数为 F(x)=0 (x≤0), =ln x (0<x≤e), =1 (x>e)。求 P(0<X<3) 和 P(X≤2)。", "options": [], "answer": "P(0<X<3) = F(3)-F(0) = 1-0 = 1\nP(X≤2) = F(2) = ln2","key":true},
+        {"stem": "【计算】已知二维连续型随机变量 (X,Y) 的分布函数为 F(x,y)=(1-e⁻³ᵃ)(1-e⁻⁵ᵏ) (x≥0,y≥0)。求联合概率密度 f(x,y)。", "options": [], "answer": "f(x,y) = 15e⁻³ᵃ⁻⁵ᵏ (x≥0,y≥0), 其他为 0","key":true},
+        {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=4xy (0<x<1,0<y<1)。(1)求边缘概率密度。(2)求 P(X≤1/2, Y≤1/2)。", "options": [], "answer": "fₓ(x)=2x (0<x<1); fₛ(y)=2y (0<y<1)\nP(X≤1/2,Y≤1/2) = 1/16","key":true},
         {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=2x (0<x<1,0<y<1)。(1)求边缘概率密度。(2)求 P(X<2Y)。", "options": [], "answer": "fₓ(x)=2x (0<x<1); fₛ(y)=1 (0<y<1)\nP(X<2Y) = 3/4"},
         {"stem": "【计算】已知 (X,Y) 的联合分布律为：P(0,1)=0.1, P(0,2)=0.2, P(1,1)=0.3, P(1,2)=0.4。(1)求边缘分布律。(2)判断 X,Y 是否独立。", "options": [], "answer": "(1) P(X=0)=0.3, P(X=1)=0.7; P(Y=1)=0.4, P(Y=2)=0.6\n(2) 不独立，因为 P(X=0,Y=1)=0.1 ≠ 0.3×0.4=0.12"},
         {"stem": "【计算】设 X 与 Y 相互独立且同分布于 B(1,p) (0<p<1)。令 Z=0 (X+Y 为偶数), Z=1 (X+Y 为奇数)。(1)求 Z 的分布律。(2)求 (X,Z) 的联合分布律。", "options": [], "answer": "(1) P(Z=0)=2p(1-p), P(Z=1)=2p²-2p+1\n(2) P(X=0,Z=0)=(1-p)², P(X=0,Z=1)=p(1-p), P(X=1,Z=0)=p(1-p), P(X=1,Z=1)=p²"},
         {"stem": "【计算】已知随机变量 X 的分布律为：X=-1,P=0.1; X=0,P=0.2; X=1,P=0.2; X=2,P=0.5。求 E(X), D(X), D(10X-5)。", "options": [], "answer": "E(X)=1.1, E(X²)=2.3, D(X)=1.09, D(10X-5)=109"},
-        {"stem": "【计算】设二维随机变量 (X,Y) 在区域 A 上服从均匀分布，A 为 x 轴、y 轴及直线 x+y+1=0 所围成的区域。求 E(X), E(3X+2Y), E(XY)。", "options": [], "answer": "E(X)=-2/3, E(Y)=-2/3, E(3X+2Y)=-10/3, E(XY)=1/12"},
-        {"stem": "【计算】用甲乙两种仪器检测某种成分，X₁ 和 X₂ 的分布律如下：X₁: 48(0.1), 49(0.1), 50(0.6), 51(0.1), 52(0.1); X₂: 48(0.2), 49(0.2), 50(0.2), 51(0.2), 52(0.2)。问哪种仪器精度较高？", "options": [], "answer": "E(X₁)=E(X₂)=50, D(X₁)=1, D(X₂)=2, 因为 D(X₁)<D(X₂)，甲仪器精度较高"},
+        {"stem": "【计算】设二维随机变量 (X,Y) 在区域 A 上服从均匀分布，A 为 x 轴、y 轴及直线 x+y+1=0 所围成的区域。求 E(X), E(3X+2Y), E(XY)。", "options": [], "answer": "E(X)=-2/3, E(Y)=-2/3, E(3X+2Y)=-10/3, E(XY)=1/12","key":true},
+        {"stem": "【计算】用甲乙两种仪器检测某种成分，X₁ 和 X₂ 的分布律如下：X₁: 48(0.1), 49(0.1), 50(0.6), 51(0.1), 52(0.1); X₂: 48(0.2), 49(0.2), 50(0.2), 51(0.2), 52(0.2)。问哪种仪器精度较高？", "options": [], "answer": "E(X₁)=E(X₂)=50, D(X₁)=1, D(X₂)=2, 因为 D(X₁)<D(X₂)，甲仪器精度较高","key":true},
         {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=8xy (0≤x≤1,0≤y≤x)。求 Cov(X,Y) 和 ρₓₛ。", "options": [], "answer": "E(X)=4/5, D(X)=2/75, E(Y)=8/15, D(Y)=11/225, E(XY)=4/9, Cov(X,Y)=4/225, ρₓₛ=2√66/33"},
         {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率分布如下：P(0,-1)=0.07, P(0,0)=0.18, P(0,1)=0.15, P(1,-1)=0.08, P(1,0)=0.32, P(1,1)=0.20。求 Cov(X,Y) 和 ρₓₛ。", "options": [], "answer": "E(X)=0.6, E(Y)=0.2, E(XY)=0.12, Cov(X,Y)=0, ρₓₛ=0"},
         {"stem": "【计算】设二维随机变量 (X,Y) 的联合概率分布如下：P(0,0)=1/4, P(0,2)=1/4, P(1,1)=1/3, P(2,0)=1/12, P(2,2)=1/12。求 Cov(X, Y-Y)。", "options": [], "answer": "Cov(X, Y-Y) = Cov(X,Y) - D(Y) = -1/3"}
@@ -430,10 +431,10 @@ DATA.prob = {
     {
       name: "证明题",
       questions: [
-        {"stem": "【证明】证明指数分布的期望和方差分别为 1/λ 和 1/λ²。", "options": [], "answer": "E(X)=∫₀ⁿ x·λe⁻λᵊdx = 1/λ\nE(X²)=∫₀ⁿ x²·λe⁻λᵊdx = 2/λ²\nD(X)=2/λ²-1/λ² = 1/λ²"},
-        {"stem": "【证明】证明均匀分布的期望和方差分别为 (a+b)/2 和 (b-a)²/12。", "options": [], "answer": "E(X)=∫ₐᵇ x·1/(b-a)dx = (a+b)/2\nE(X²)=∫ₐᵇ x²·1/(b-a)dx = (a²+ab+b²)/3\nD(X)=(a²+ab+b²)/3-(a+b)²/4 = (b-a)²/12"},
-        {"stem": "【证明】已知二维连续型随机变量 (X,Y) 的分布函数为 F(x,y)=(1-e⁻³ᵃ)(1-e⁻⁵ᵏ) (x≥0,y≥0)。证明 X,Y 独立。", "options": [], "answer": "Fₓ(x)=F(x,+∞)=1-e⁻³ᵃ (x≥0)\nFₛ(y)=F(+∞,y)=1-e⁻⁵ᵏ (y≥0)\nFₓ(x)·Fₛ(y) = F(x,y)\n所以 X,Y 独立"},
-        {"stem": "【证明】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=4xy (0<x<1,0<y<1)。证明 X,Y 独立。", "options": [], "answer": "fₓ(x)=2x (0<x<1), fₛ(y)=2y (0<y<1)\nfₓ(x)·fₛ(y) = 4xy = f(x,y)\n所以 X,Y 独立"},
+        {"stem": "【证明】证明指数分布的期望和方差分别为 1/λ 和 1/λ²。", "options": [], "answer": "E(X)=∫₀ⁿ x·λe⁻λᵊdx = 1/λ\nE(X²)=∫₀ⁿ x²·λe⁻λᵊdx = 2/λ²\nD(X)=2/λ²-1/λ² = 1/λ²","key":true},
+        {"stem": "【证明】证明均匀分布的期望和方差分别为 (a+b)/2 和 (b-a)²/12。", "options": [], "answer": "E(X)=∫ₐᵇ x·1/(b-a)dx = (a+b)/2\nE(X²)=∫ₐᵇ x²·1/(b-a)dx = (a²+ab+b²)/3\nD(X)=(a²+ab+b²)/3-(a+b)²/4 = (b-a)²/12","key":true},
+        {"stem": "【证明】已知二维连续型随机变量 (X,Y) 的分布函数为 F(x,y)=(1-e⁻³ᵃ)(1-e⁻⁵ᵏ) (x≥0,y≥0)。证明 X,Y 独立。", "options": [], "answer": "Fₓ(x)=F(x,+∞)=1-e⁻³ᵃ (x≥0)\nFₛ(y)=F(+∞,y)=1-e⁻⁵ᵏ (y≥0)\nFₓ(x)·Fₛ(y) = F(x,y)\n所以 X,Y 独立","key":true},
+        {"stem": "【证明】设二维随机变量 (X,Y) 的联合概率密度为 f(x,y)=4xy (0<x<1,0<y<1)。证明 X,Y 独立。", "options": [], "answer": "fₓ(x)=2x (0<x<1), fₛ(y)=2y (0<y<1)\nfₓ(x)·fₛ(y) = 4xy = f(x,y)\n所以 X,Y 独立","key":true},
         {"stem": "【证明】设二维随机变量 (X,Y) 的联合概率分布如下：P(0,-1)=0.07, P(0,0)=0.18, P(0,1)=0.15, P(1,-1)=0.08, P(1,0)=0.32, P(1,1)=0.20。证明 Cov(X,Y) 和 ρₓₛ 的值都为 0。", "options": [], "answer": "E(X)=0.6, E(Y)=0.2, E(XY)=0.12\nCov(X,Y)=E(XY)-E(X)E(Y)=0.12-0.12=0\nρₓₛ=0"},
         {"stem": "【证明】设 E(X)=E(Y)=1, E(Z)=-1, D(X)=D(Y)=D(Z)=1, ρₓₛ=0, ρₓᵋ=1/2, ρₛᵋ=-1/2。证明 E(X+Y+Z)=1, D(X+Y+Z)=3。", "options": [], "answer": "E(X+Y+Z)=1+1-1=1\nCov(X,Y)=0, Cov(X,Z)=1/2, Cov(Y,Z)=-1/2\nD(X+Y+Z)=1+1+1+2(0+1/2-1/2)=3"}
       ]
@@ -815,6 +816,49 @@ DATA.eng = {
     { name: '翻译 & 作文 · PDF', questions: [] }
   ]
 };
+DATA.dlogic = {
+  name: '数字逻辑与系统设计', icon: '🔢', color: '#f97316',
+  desc: '数字电子技术练习题 · 单选 + 多选 + 计算',
+  chapters: [
+    { name: '单项选择题', questions: [
+      {stem:'关于数字信号，下列描述正确的是（ ）。',options:['A. TTL 悬空等效高电平 1','B. 不同器件高低电平标准相同','C. GB2312 是汉字编码','D. 传输特性和电源强相关'],answer:'A',"key":true},
+      {stem:'触发器是一种（ ）。',options:['A. 组合逻辑器件','B. 时序逻辑器件','C. 模拟电路器件','D. 算术运算器件'],answer:'B',"key":true},
+      {stem:'组合逻辑电路最核心特征是（ ）。',options:['A. 输出和历史状态强相关','B. 需要时钟信号','C. 输出仅由当前输入决定','D. 具有记忆功能'],answer:'C',"key":true},
+      {stem:'在饮料灌装机的自动控制系统中，将模拟电压信号转换为数字信号的部件是（ ）。',options:['A. 模/数转换器（ADC）','B. 数/模转换器（DAC）','C. 编码器','D. 译码器'],answer:'A'},
+      {stem:'以下哪种应用属于时序逻辑的典型应用（ ）。',options:['A. 加法器','B. 译码器','C. 编码器','D. 计数器'],answer:'D',"key":true},
+      {stem:'采用门电路设计最简组合逻辑电路时，首要步骤一般是（ ）。',options:['A. 画逻辑图','B. 写逻辑表达式','C. 化简表达式','D. 根据功能列出真值表、写出逻辑表达式'],answer:'D'},
+      {stem:'关于最小项的性质，以下说法正确的是（ ）。',options:['A. 任何逻辑函数都不能用最小项表示','B. 最小项的编号与变量取值无关','C. n 个变量有 2^n 个最小项','D. 最小项的编号与变量取值对应的十进制数无关'],answer:'C',"key":true},
+      {stem:'已知两输入门 A=1、B=0，Y=1；A=1、B=1，Y=0，该门电路为（ ）。',options:['A. 与门','B. 或门','C. 异或门','D. 与非门'],answer:'D'},
+      {stem:'三变量逻辑函数最小项对应二进制取值为十进制 5 的是（ ）。',options:['A. m5','B. m3','C. m7','D. m1'],answer:'A'},
+      {stem:'小规模时序电路设计中，描述状态跳转关系的工具是（ ）。',options:['A. 真值表','B. 状态图','C. 卡诺图','D. 波形图'],answer:'B',"key":true},
+      {stem:'逻辑函数 F=AB+AC+BC 的最简与或式为（ ）。',options:['A. AB+AC+BC','B. AB+C','C. A(B+C)','D. (A+B)(A+C)'],answer:'A'},
+      {stem:'JK 触发器 J=1、K=1 时，有效时钟边沿到来触发器会（ ）。',options:['A. 置 1','B. 置 0','C. 翻转','D. 保持原状态'],answer:'C',"key":true},
+      {stem:'3 人多数表决器，输出 F=1 的最小项个数（ ）。',options:['A. 2 个','B. 4 个','C. 6 个','D. 8 个'],answer:'B'},
+      {stem:'组合逻辑电路设计正确步骤是（ ）。',options:['A. 化简-真值表-逻辑抽象-画逻辑图','B. 逻辑抽象-真值表-化简-画逻辑图','C. 真值表-逻辑抽象-化简-画逻辑图','D. 画逻辑图-化简-真值表-逻辑抽象'],answer:'B',"key":true}
+    ]},
+    { name: '多项选择题', questions: [
+      {stem:'下列关于 PN 结单向导电性描述正确的是（ ）。',options:['A. PN 结正向偏置时导通','B. PN 结反向偏置时截止','C. 正向电流随正向电压增大而增大','D. 单向导电性说明 PN 结正反两个方向导电能力一致'],answer:'ABC',"key":true},
+      {stem:'属于组合逻辑电路的器件有（ ）。',options:['A. 加法器','B. 译码器','C. 计数器','D. 全加器'],answer:'ABD',"key":true},
+      {stem:'逻辑规则描述错误的选项有（ ）。',options:['A. 与门全 1 输入输出为 1','B. 或门全 0 输入输出为 0','C. 或非门任一输入为 0，输出必为 1','D. 与非门全 0 输入，输出为 1'],answer:'CD'},
+      {stem:'卡诺图化简逻辑函数说法正确的有（ ）。',options:['A. 圈 1 化简得到最简与或式','B. 圈 0 化简得到最简或与式','C. 任何一个合并圈所含方格数为 2 的幂次','D. 卡诺图适用于 2~5 变量'],answer:'ACD',"key":true},
+      {stem:'常用基本触发器类型包含（ ）。',options:['A. RS 触发器','B. JK 触发器','C. D 触发器','D. T 触发器'],answer:'ABCD'},
+      {stem:'组合逻辑电路基本特点描述正确的是（ ）。',options:['A. 输出仅由当前输入决定','B. 不含记忆元件','C. 输出和历史状态有关','D. 无需时钟信号'],answer:'ABD'},
+      {stem:'组合逻辑电路特点及器件说法正确的是（ ）。',options:['A. 编码器属于组合逻辑','B. 译码器属于组合逻辑','C. 多路选择器属于组合逻辑','D. 比较器可用于比较两个二进制数的大小关系'],answer:'ABCD'},
+      {stem:'时序逻辑电路设计分析需要用到的内容包含（ ）。',options:['A. 状态图','B. 状态表','C. 时序图','D. 竞争冒险分析'],answer:'ABC'},
+      {stem:'多路选择器说法正确的有（ ）。',options:['A. n 个地址输入对应 2^n 个数据输入','B. 属于组合逻辑电路','C. 输出与历史状态有关','D. 可以实现逻辑函数'],answer:'ABD'},
+      {stem:'逻辑代数化简与函数表示说法正确的是（ ）。',options:['A. A+AB=A 是吸收律','B. 卡诺图化简只适用于 5 变量以上','C. A+AB=A+B 是常用公式','D. 最简与或式中乘积项数最少'],answer:'ACD'}
+    ]},
+    { name: '分析计算题', questions: [
+      {stem:'【计算】电路：A、B 进与门得 X；B、C 进或门得 Y；X、Y 进或门输出 F。求 F 的逻辑表达式并化简，说明逻辑功能。',options:[],answer:'F = AB + BC + B = B(A+1) + BC = B + BC = B(1+C) = B。逻辑功能：输出仅由 B 决定。',"key":true},
+      {stem:'【计算】电路：A、B、C 三者输入三输入与非门输出 F。列出真值表并分析逻辑功能。',options:[],answer:'F = ~(ABC)。仅当 A=B=C=1 时输出 0，其余输出 1。逻辑功能：三输入与非门。',"key":true},
+      {stem:'【计算】三重多数表决器（A/B/C 三个模块，>=2 个 1 则 F=1）。写出最小项标准式，用卡诺图化简，画出逻辑电路。',options:[],answer:'F = AB + BC + AC。3 个二输入与门输出接入三输入或门。',"key":true},
+      {stem:'【计算】4 路计算机冲突检测（A/B/C/D，>=3 个 1 则 F=1）。写出最小项表达式，用卡诺图化简。',options:[],answer:'F = ABC + ABD + ACD + BCD。4 组三输入与门接四输入或门。',"key":true},
+      {stem:'【计算】4 位二进制转格雷码。写出转换规则，列出真值表，画出电路。',options:[],answer:'G3=B3, G2=B3^B2, G1=B2^B1, G0=B1^B0。每个输出独立化简，异或式已是最简。',"key":true},
+      {stem:'【计算】交通信号灯时序控制器。东西/南北各有绿灯、黄灯、红灯。状态循环：S0-S1-S2-S3-S0。描述状态划分、状态图和仿真波形。',options:[],answer:'4 个状态循环：S0(东西绿50s)-S1(东西黄5s)-S2(南北绿50s)-S3(南北黄5s)-S0。',"key":true}
+    ]}
+  ]
+};
+
 
 var currentSubject = 'java';
 var currentChapter = 0;
@@ -989,7 +1033,9 @@ function renderContent() {
     html += '<div class="q-card" data-qid="' + qId + '" id="card-' + qId + '">';
     html += '<div class="q-stem"><span class="q-num">' + (i+1) + '.</span>';
     html += '<span>' + nl2br(escapeHtml(q.stem)) + '</span>';
-    html += '<span class="q-type-badge ' + typeClass + '">' + typeLabel + '</span></div>';
+    html += '<span class="q-type-badge ' + typeClass + '">' + typeLabel + '</span>';
+    if (q["key"]) html += '<span class="q-key-badge">⭐ 重点</span>';
+    html += '</div>';
 
     // Options (clickable for choice questions)
     if (q.options.length > 0) {
@@ -1288,23 +1334,23 @@ function resetAllChapter() {
 var LISTENING_DATA = [
   {id:'u1',title:'Unit 1',subtitle:'Moral Virtues in Confucianism',
    words:[{en:'known',cn:'被称为'},{en:'virtue',cn:'美德'},{en:'justice',cn:'正义'},{en:'encouraged',cn:'被提倡'},{en:'respect',cn:'尊重'},{en:'wisdom',cn:'智慧'},{en:'pursuit',cn:'追求'},{en:'faithfulness',cn:'诚信'},{en:'stability',cn:'稳定'},{en:'contribute',cn:'贡献'}],
-   passage:`Moral virtues hold a central position in Confucianism, and are considered the basic principles of human behavior and the foundation for a just and harmonious society. The Five Constant Virtues, also {known} as the Five Constants or Wuchang, advocated by Confucianism, are ren, yi, li, zhi, and xin. Ren, or benevolence, is the most important {virtue} treasured by Confucianism. It means showing genuine concern and being kind and caring toward others. According to Confucius, if we all practice ren, we could have a peaceful and happy society. Yi, or righteousness, is also regarded as an important virtue in Confucian thought. It emphasizes the pursuit of {justice} and moral integrity. According to Confucius, righteousness is essential for achieving personal goodness, as well as maintaining social fairness and justice. Li, or propriety, is the third important virtue {encouraged} by Confucianism. It is about proper conduct and behavior in different social settings. In Confucian ethics, if we are polite and observe proper etiquette toward others, we can build relationships of mutual {respect} and trust. Zhi, or {wisdom}, is the fourth essential virtue of Confucianism. It highlights the importance of knowledge, learning, and critical thinking. In Confucianism, the {pursuit} of wisdom and education plays a key role in achieving personal growth and social advancement. Xin, or {faithfulness}, is also an essential virtue promoted by Confucianism. It involves being loyal, honest, and trustworthy in all aspects of life. In Confucian philosophy, faithfulness is indispensable in building strong personal relationships and long-term social {stability}. The Five Constant Virtues were developed over two thousand years ago, yet they remain as important today. By cultivating moral virtues such as ren, yi, li, zhi, and xin, individuals can lead an ethical life and {contribute} positively to society.`,
+   passage:`Moral virtues hold a central position in Confucianism, and are considered the basic principles of human behavior and the foundation for a just and harmonious society. The Five Constant Virtues, also {known} as the Five Constants or Wuchang, advocated by Confucianism, are ren, yi, li, zhi, and xin. Ren, or benevolence, is the most important {virtue} treasured by Confucianism. It means showing genuine concern and being kind and caring toward others. According to Confucius, if we all practice ren, we could have a peaceful and happy society. Yi, or righteousness, is also regarded as an important virtue in Confucian thought. It emphasizes the pursuit of {justice} and moral integrity. Li, or propriety, is the third important virtue {encouraged} by Confucianism. It is about proper conduct and behavior in different social settings. In Confucian ethics, if we are polite and observe proper etiquette toward others, we can build relationships of mutual {respect} and trust. Zhi, or {wisdom}, is the fourth essential virtue of Confucianism. It highlights the importance of knowledge, learning, and critical thinking. In Confucianism, the {pursuit} of wisdom and education plays a key role in achieving personal growth and social advancement. Xin, or {faithfulness}, is also an essential virtue promoted by Confucianism. It involves being loyal, honest, and trustworthy in all aspects of life. In Confucian philosophy, faithfulness is indispensable in building strong personal relationships and long-term social {stability}. The Five Constant Virtues were developed over two thousand years ago, yet they remain as important today. By cultivating moral virtues such as ren, yi, li, zhi, and xin, individuals can lead an ethical life and {contribute} positively to society.`,
    translation:`道德美德在儒学中占据核心地位，被认为是人类行为的基本原则和公正和谐社会的基础。儒家倡导的五常分别是仁、义、礼、智、信。仁即仁爱，是儒家最珍视的美德。义即正义，强调对正义和道德正直的追求。礼即礼节，涉及在不同社交场合中的得体行为。智即智慧，强调知识、学习和批判性思维的重要性。信即诚信，意味着忠诚、诚实和值得信赖。`},
   {id:'u2',title:'Unit 2',subtitle:'The Chongyang Festival',
    words:[{en:'referred',cn:'被称为'},{en:'health',cn:'健康'},{en:'traced',cn:'追溯'},{en:'celebrated',cn:'庆祝'},{en:'elderly',cn:'老年人'},{en:'honoring',cn:'尊敬'},{en:'ascending',cn:'攀登'},{en:'fruitful',cn:'丰收的'},{en:'prosperity',cn:'繁荣'},{en:'intangible',cn:'非物质的'}],
-   passage:`The Chongyang Festival, also {referred} to as the Double Ninth Festival, falls on the ninth day of the ninth month in the Chinese lunar calendar. The number nine is regarded as yang in Chinese culture, which represents positive forces, life, and brightness, hence the festival is given the name "Chongyang". In addition, the word "nine" shares the same pronunciation as the word for "long" or "forever" in Chinese, so "double ninth" implies good {health} and a long life. The festival has a long history of over 2,000 years. According to some research, its origin can be {traced} back to the Warring States Period, when it was mainly celebrated among royal families. It became widely {celebrated} after the Wei and Jin dynasties, and was officially declared to be a festival during the Tang Dynasty. The most important tradition of the Chongyang Festival is respecting the {elderly}. Seniors are assets of families and society, representing valuable sources of wisdom, creation, and inheritance. Respecting and caring for the elderly is one of the most fundamental moral principles in Chinese culture. One key tradition of the Chongyang Festival involves {honoring} older people through specific gestures of respect and appreciation. Another custom is {ascending} heights or climbing mountains. The festival is a perfect time for outdoor activities. Other traditions include eating Chongyang cake, appreciating chrysanthemum flowers, and drinking chrysanthemum wine. Because the ninth lunar month is the time of a {fruitful} harvest, these activities bring family members together in a joyous festive atmosphere to remember their ancestors, strengthen their ties, and wish each other health, happiness, and {prosperity}. In modern times, in 1989, the Chinese government set it as Senior's Day to promote respect for the elderly. In 2006, it was listed as an item of China's national {intangible} cultural heritage.`,
+   passage:`The Chongyang Festival, also {referred} to as the Double Ninth Festival, falls on the ninth day of the ninth month in the Chinese lunar calendar. The number nine is regarded as yang in Chinese culture, which represents positive forces, life, and brightness, hence the festival is given the name "Chongyang". In addition, the word "nine" shares the same pronunciation as the word for "long" or "forever" in Chinese, so "double ninth" implies good {health} and a long life. The festival has a long history of over 2,000 years. According to some research, its origin can be {traced} back to the Warring States Period, when it was mainly celebrated among royal families. It became widely {celebrated} after the Wei and Jin dynasties, and was officially declared to be a festival during the Tang Dynasty. The most important tradition of the Chongyang Festival is respecting the {elderly}. Seniors are assets of families and society, representing valuable sources of wisdom, creation, and inheritance. One key tradition involves {honoring} older people through specific gestures of respect and appreciation. Another custom is {ascending} heights or climbing mountains. Other traditions include eating Chongyang cake, appreciating chrysanthemum flowers, and drinking chrysanthemum wine. Because the ninth lunar month is the time of a {fruitful} harvest, these activities bring family members together in a joyous festive atmosphere to remember their ancestors, strengthen their ties, and wish each other health, happiness, and {prosperity}. In modern times, in 1989, the Chinese government set it as Senior's Day to promote respect for the elderly. In 2006, it was listed as an item of China's national {intangible} cultural heritage.`,
    translation:`重阳节也被称为重九节，是中国农历九月初九。数字九在中国文化中被视为阳，代表积极的力量、生命和光明。该节日有两千多年的历史，其起源可追溯到战国时期。重阳节最重要的传统是尊敬老人。另一项习俗是登高或爬山。其他传统包括吃重阳糕、赏菊花和饮菊花酒等。1989年，中国政府将其定为老人节。2006年，被列入国家非物质文化遗产名录。`},
   {id:'u3',title:'Unit 3',subtitle:'Yangtze River Cruise',
    words:[{en:'cruise',cn:'游轮旅行'},{en:'enjoying',cn:'享用'},{en:'explore',cn:'探索'},{en:'large-scale',cn:'大型的'},{en:'grand',cn:'宏伟的'},{en:'witness',cn:'观看'},{en:'lifted',cn:'提升'},{en:'observe',cn:'观察'},{en:'patriotic',cn:'爱国的'},{en:'returning',cn:'返回'}],
-   passage:`Taking a {cruise} on China's Yangtze River is a great way to spend a holiday. This journey allows tourists to escape the city's hustle and bustle and experience breathtaking scenery while {enjoying} tea and delicious snacks onboard. Among the classic routes available, one is the "Two Dams and One Gorge" tour, which offers a one-day Yangtze River cruise experience. Passengers get to {explore} three extraordinary sites: the Gezhouba Dam, the Xiling Gorge, and the Three Gorges Dam. The Gezhouba Dam is the first {large-scale} water control project on the Yangtze River, while the Three Gorges Dam stands as the world's largest hydropower project. Departing from Yichang in Hubei Province, the cruise begins its journey that first takes passengers through the {grand} Gezhouba Dam and then the picturesque Xiling Gorge. Along this route, tourists can view the scenic beauty of the Tribes of the Three Gorges while cruising on the boat. They can also arrange another trip to hike along the Yangtze River and {witness} traditional performances featuring folk songs, group dances, and various local customs in the area. The most amazing experience of the tour comes in the afternoon when tourists take a boat to pass through the Three Gorges Dam. To a remarkable vertical height of up to 113 meters, the boat is {lifted} gracefully by the world's largest and most advanced vertical ship lift. Passengers can {observe} the change of the water level until it reaches its maximum height within the confines of the ship lift. Then, standing on the deck, they can enjoy a splendid panoramic view of the dam and the surrounding scenery. The entire process of passing through the dam takes around 40 minutes. After crossing the dam, tourists can visit Zigui County, the hometown of Qu Yuan, a {patriotic} poet from the Warring States Period. There, they can tour the Qu Yuan Temple, which was originally constructed during the Tang Dynasty, before {returning} to Yichang by bus to end the trip.`,
+   passage:`Taking a {cruise} on China's Yangtze River is a great way to spend a holiday. This journey allows tourists to escape the city's hustle and bustle and experience breathtaking scenery while {enjoying} tea and delicious snacks onboard. Passengers get to {explore} three extraordinary sites: the Gezhouba Dam, the Xiling Gorge, and the Three Gorges Dam. The Gezhouba Dam is the first {large-scale} water control project on the Yangtze River, while the Three Gorges Dam stands as the world's largest hydropower project. The cruise takes passengers through the {grand} Gezhouba Dam and then the picturesque Xiling Gorge. Tourists can {witness} traditional performances featuring folk songs and group dances. The most amazing experience comes when the boat is {lifted} gracefully by the world's largest vertical ship lift. Passengers can {observe} the water level change. After crossing the dam, tourists visit Zigui County, the hometown of Qu Yuan, a {patriotic} poet from the Warring States Period, before {returning} to Yichang.`,
    translation:`乘坐中国长江游轮是度假的好方式。游客可以逃离城市的喧嚣，欣赏令人叹为观止的风景。经典路线之一是"两坝一峡"一日游，乘客可以探索葛洲坝、西陵峡和三峡大坝。葛洲坝是长江上第一个大型水利工程，三峡大坝是世界上最大的水电项目。最令人惊叹的体验是乘船通过三峡大坝，船被垂直升船机提升至113米高度。过坝后可参观秭归县——爱国诗人屈原的故乡。`},
   {id:'u4',title:'Unit 4',subtitle:'Digital Dunhuang',
    words:[{en:'click',cn:'点击'},{en:'feast',cn:'盛宴'},{en:'featuring',cn:'展示'},{en:'painted',cn:'彩绘的'},{en:'protect',cn:'保护'},{en:'restoration',cn:'修复'},{en:'displayed',cn:'展出的'},{en:'kicked',cn:'启动'},{en:'achievements',cn:'成就'},{en:'means',cn:'手段'}],
-   passage:`The northwestern Chinese city of Dunhuang is more than 2,000 kilometers from Beijing, but thanks to digital technology, its famous artistic heritage can be just a {click} away for people in the capital. Dunhuang is home to the Mogao Caves, a UNESCO World Heritage Site. The reproduced elements of the caves have been on display at the National Base for International Cultural Trade in Beijing since July 2022. The exhibition is a {feast} for the eyes, covering an area of 1,600 square meters and {featuring} the results of research on nearly 50 sets of cultural relics. It is set to run for three years. While the {painted} sculptures, murals, and other splendid items of the Mogao Caves have been replicated using 3D printing, the grottoes that are closed to the public have been reproduced in a digital format that brings them to life. A typical example of such digital preservation is the No. 3 Grotto. Due to the small blisters on the walls that cause the color layer to fall off, the grotto is gradually deteriorating. In order to {protect} the grotto and prevent further damage, it is no longer open to the public. However, its digital {restoration} offers an alternative way for visitors to experience its splendor, and it can be preserved for good in digital space. The reconstruction and restoration of the precious artistic heritage {displayed} in the exhibition were made possible thanks to Digital Dunhuang, an ongoing project at the cutting edge of digital technology to collect, process, and store data of cultural relics of Dunhuang. The Digital Dunhuang project {kicked} off in the 1990s, and the past three decades have seen remarkable {achievements}. By the end of 2021, the project team had completed the digital collection of 268 grottoes, finished the image processing of 164 grottoes, and conducted 3D reconstruction of 45 painted sculptures, 146 grottoes, and seven large relic sites. Digital technology provides a {means} of preserving China's cultural heritage for future generations and allowing people both at home and abroad to soak up the artistic charm of the Mogao Caves.`,
+   passage:`The northwestern Chinese city of Dunhuang is more than 2,000 kilometers from Beijing, but thanks to digital technology, its famous artistic heritage can be just a {click} away for people in the capital. Dunhuang is home to the Mogao Caves, a UNESCO World Heritage Site. The exhibition is a {feast} for the eyes, {featuring} the results of research on nearly 50 sets of cultural relics. While the {painted} sculptures and murals have been replicated using 3D printing, the closed grottoes have been reproduced in a digital format. In order to {protect} the grotto, it is no longer open to the public. However, its digital {restoration} offers an alternative way for visitors. The heritage {displayed} in the exhibition were made possible thanks to Digital Dunhuang. The project {kicked} off in the 1990s, with remarkable {achievements}. Digital technology provides a {means} of preserving China's cultural heritage.`,
    translation:`敦煌距离北京超过2000公里，但得益于数字技术，其著名的艺术遗产只需轻轻一点即可触及。敦煌是莫高窟的所在地，一处联合国教科文组织世界遗产。展览面积达1600平方米。虽然彩绘雕塑等已通过3D打印复制，但不对公众开放的洞窟已以数字形式再现。数字敦煌项目始于20世纪90年代。到2021年底，项目团队已完成268个洞窟的数字采集。数字技术为后代保存中国的文化遗产提供了手段。`},
   {id:'u5',title:'Unit 5',subtitle:'Environmental Protection in China',
    words:[{en:'well-being',cn:'福祉'},{en:'protection',cn:'保护'},{en:'sustainable',cn:'可持续的'},{en:'advances',cn:'进步'},{en:'planting',cn:'植树'},{en:'increase',cn:'增长'},{en:'effort',cn:'努力'},{en:'numerous',cn:'大量的'},{en:'popularity',cn:'知名度'},{en:'owing',cn:'由于'}],
-   passage:`A clean and healthy environment is essential for people's {well-being} and happiness. In recent decades, China has placed environmental {protection} at the forefront of its priorities. The phrase "blue skies, green lands, and clear waters" has emerged as a guiding principle in the country's pursuit of {sustainable} development and improvement of environmental health. Air pollution, particularly PM2.5 pollutants, was once a significant issue in North China. However, since the 2010s, with strict government policies and {advances} in clean energy development, China has made remarkable progress in reducing its PM2.5 density. Now, China boasts the world's largest clean coal-burning power generation base, along with the highest volume of installed wind and photovoltaic power capacity. Moreover, China has long stood out as the top producer of new-energy vehicles in the world. What's more, tree {planting} has become a common practice among people in China. Following decades of afforestation, China has now established the world's largest area of planted forests. Global data shows that nearly 25 percent of the world's {increase} in greenery since the early 2000s has occurred in China. China's rivers and lakes are under stricter protection as well. The Xixi Wetland in Hangzhou, Zhejiang Province, is a good example of this {effort}. Previously, the rivers within this area were heavily polluted with garbage, causing {numerous} native animals to migrate elsewhere. However, in 2003, the local government initiated a wetland conservation program, which marked a crucial turning point for the area. Since then, significant changes have taken place, and the wetland has even gained immense {popularity} as a national wetland park. {Owing} to China's firm commitment to environmental protection, the vision of "blue skies, green lands, and clear waters" has become a reality that further enhances the well-being and happiness of the Chinese population.`,
+   passage:`A clean and healthy environment is essential for people's {well-being} and happiness. In recent decades, China has placed environmental {protection} at the forefront. The phrase "blue skies, green lands, and clear waters" has emerged as a guiding principle in the country's pursuit of {sustainable} development. Since the 2010s, with strict government policies and {advances} in clean energy, China has made remarkable progress in reducing PM2.5 density. Tree {planting} has become a common practice. Following decades of afforestation, China has the world's largest area of planted forests. Nearly 25 percent of the world's {increase} in greenery since the early 2000s has occurred in China. The Xixi Wetland in Hangzhou is a good example of this {effort}. Previously, rivers were heavily polluted, causing {numerous} animals to migrate. In 2003, the local government initiated a wetland conservation program. The wetland gained immense {popularity} as a national wetland park. {Owing} to China's firm commitment, the vision has become a reality.`,
    translation:`干净健康的环境对人民的福祉和幸福至关重要。近几十年来，中国将环境保护放在首位。"蓝天、绿地、清水"已成为国家追求可持续发展的指导原则。自2010年代以来，随着严格的政府政策和清洁能源发展的进步，中国在降低PM2.5浓度方面取得了显著进展。植树已成为中国人民的普遍实践，中国已建立了世界上最大的人工林面积。西溪湿地就是一个很好的例子。2003年当地政府启动了湿地保护计划。由于中国对环境保护的坚定承诺，"蓝天、绿地、清水"的愿景已成为现实。`}
 ];
 
